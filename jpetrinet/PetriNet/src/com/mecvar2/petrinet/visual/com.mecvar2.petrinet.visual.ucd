@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" size="1247,853" id="bicasarturPetriNet479" metadata="nsuml-1.4" initialized="true" showWireOptions="7">
+  <children xsi:type="editmodel:ClassEditModel" location="611,562" size="241,157" id="bicasarturPetriNet534" runTimeClassModel="bicasarturPetriNet541;bicasarturPetriNet539;bicasarturPetriNet545;bicasarturPetriNet1279;bicasarturPetriNet538;bicasarturPetriNet535;bicasarturPetriNet537">
+    <children xsi:type="editmodel:CompartmentEditModel" size="218,54">
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet535"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet537"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet538"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="108,54">
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet539"/>
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet545"/>
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet1279"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="bicasarturPetriNet548" connectionRouterKind="Manhattan" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="67,269" size="236,157" id="bicasarturPetriNet520" runTimeClassModel="bicasarturPetriNet1600;bicasarturPetriNet1671;bicasarturPetriNet521;bicasarturPetriNet524;bicasarturPetriNet526;bicasarturPetriNet523">
+    <children xsi:type="editmodel:CompartmentEditModel" size="213,72">
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet521"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet523"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet1600"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet1671"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="146,36">
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet524"/>
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet526"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="bicasarturPetriNet532" connectionRouterKind="Manhattan" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="484,256" size="169,157" targetConnections="//@children.0/@sourceConnections.0" id="bicasarturPetriNet488" runTimeClassModel="bicasarturPetriNet1638;bicasarturPetriNet1632;bicasarturPetriNet499;bicasarturPetriNet494;bicasarturPetriNet492;bicasarturPetriNet490;bicasarturPetriNet1690;bicasarturPetriNet507;bicasarturPetriNet504;bicasarturPetriNet489;bicasarturPetriNet1674;bicasarturPetriNet502;bicasarturPetriNet1623;bicasarturPetriNet1999">
+    <children xsi:type="editmodel:CompartmentEditModel" size="146,36">
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet489"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet490"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="120,72">
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet492"/>
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet502"/>
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet504"/>
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet507"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" connectionRouterKind="Manual" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" location="274,50" size="174,99" targetConnections="//@children.2/@sourceConnections.0 //@children.1/@sourceConnections.0" id="bicasarturPetriNet480" runTimeClassModel="bicasarturPetriNet482;bicasarturPetriNet484">
+    <children xsi:type="editmodel:CompartmentEditModel" size="85,18">
+      <children xsi:type="editmodel:AttributeEditModel" id="bicasarturPetriNet482"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="112,18">
+      <children xsi:type="editmodel:MethodEditModel" id="bicasarturPetriNet484"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="893,157" size="130,29" id="bicasarturPetriNet2011" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showInterfaceStereotype="true" showClassStereotype="true" showPackageStereotype="true"/>
+</editmodel:ClassDiagramEditModel>
