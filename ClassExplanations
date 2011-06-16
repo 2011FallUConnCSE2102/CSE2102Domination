@@ -1,0 +1,62 @@
+Graphics Package
+PlayerScreen class extends JPanel
+1. Handles input
+2. Objects:
+    •Map
+    •Grid
+    •Player
+
+Map class
+1. Reads and writes
+2. Tile attributes, map size
+
+MapEditor class
+
+Server Window
+1. Displays:
+    •IP address
+    •Port number
+
+Graphics.UI Package
+1. InitWindow is where the program begins
+    a. Connect to an existing game or create a new game (become a server)
+    b. If connecting to an existing game, display available servers (connect to public game) and allow user to manually connect (type in IP/port for a private game)
+    c. Once connected, a new PlayerRunner is created (PlayerRunner makes up most of the client)
+    d. If creating a new game, display server options (Server Window).
+ 
+Networking Package
+TCP or UDP?
+
+TCP
+1. Slower
+2. Extremely reliable
+3. 2 way connection
+
+UDP
+1. Faster
+2. Less reliable
+3. Broadcast to multiple computers
+
+Client class
+Communicator class
+Message class
+MessageReceiver class
+NetworkUtilities class
+Server class
+ServerInfo class
+package-info class
+ 
+Gameplay Package
+Guns interface
+
+Player
+1. Properties
+    •Location
+    •Direction
+    •Health
+    •Name
+    •Image
+
+PlayerRunner
+1. Creates JFrame and puts PlayerScreen in it
+2. Connects to server given info through ServerInfo.java

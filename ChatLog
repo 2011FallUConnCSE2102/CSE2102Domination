@@ -1,0 +1,192 @@
+1. the host opens the initwindow and clicks create server
+2. the host then chooses the options for the server and runs it
+here's a choice already: should the host have to open a new window to play?
+like open a new initwindow and join their own game
+
+there should be a start game button for the host
+that should automatically open the game window
+
+3. users join the game by either choosing it on the list of available servers or connecting manually if the server won't display for whatever reason (udp doesnt travel very well past the lan/firewalls block it sometimes)
+(we're working in tcp at this point)
+
+4. when a user joins, they send their sprite number(a byte corresponding to a sprite in the sprite class) and their username
+
+5. the server responds with a USERNAME_OK or USERNAME_TAKEN message and the client must re-request and resend the users info until a good username has been chosen
+
+6. the host clicks the start game button. any user that hasnt sent in a valid username is disconnected (to prevent someone from holding up the game from starting). the server sends every player the udp server's address and port.
+actually, maybe the udp address and port can be included in the USERNAME_OK message.
+or just rename that message to PLAYER_CONNECTED.
+
+now here's where it gets tricky
+first of all, i don't know how i should choose the udp address/port.
+also, i don't know if this will work outside an lan network like tcp does.
+
+we can try just working on lan first
+
+ik that for local applications ur supposed to use the 239.255.* range
+so i guess ill use that
+the problem is collisions
+i could solve that by giving each packet an id number
+and just hope there isnt an id collision lol
+
+so im just gonna do a random long id in the header of each packet
+
+if anyone does play a game and theres a collision we'll give them a prize
+
+ok so onto whats going to be in these udp packets
+this is probably the trickiest part of the whole project
+we need to include enough information for a player to display its entire screen but in as little bytes as possible
+
+preferably the whole message including udp headers should be less than 576 bytes
+
+heres what im thinking
+i made a sprite class
+the sprite class can represent up to 256 different images
+not that we would need anymore than like 10
+
+so basically for each sprite on the map(players, bullets, players dying, etc...) you include the sprites number (a byte), the sprites location (idk how many bytes), and the sprites direction (2 bytes)
+can u think of any other information that needs to be sent
+
+oh wait
+we need to also let the players know where they are
+so they can display their screen correctly
+maybe every sprite needs to also have a player id
+
+ok i thought that was what the sprite number meant, but an id works...each sprite would have to be assigned a unique number
+
+it would be either a players number or -1 meaning its not any player
+
+i thought about the location bytes and 3 bytes should probably be sufficient
+maybe 4
+
+what makes up the location?
+
+its the pixel x pixel point on the map
+4 bytes will allow for a 65535x65535 pixel map, which i think should be sufficient
+
+python is like 2560x2560 i think
+
+ok wow so we can make really big maps, thought that defeats the purpose of domination
+
+yea
+3 bytes would only i allow for 4096x4096 pixel maps which i fear might cause problems in the future
+however, a 65535x65535 pixel map would basically be infeasible to create
+
+alright so how many bytes does that make each sprite
+
+1 for playerID, 1 for spriteID, 2 for spriteDir, 4 for spriteLoc, that's 8 bytes per sprite
+
+that should allow for plenty of players and still keep us under the 576 byte preferred max
+once the udp packet is above 576 bytes, it's split into multiple packets which can cause fragmentation
+
+ok so for that packet we'll include the number of sprites as a byte in the beginning so the player can read it
+and that should be good
+
+oh theres one more aspect of networking/gameplay that we didnt discuss
+
+how the players communicate with the server
+i think the players should communicate with the server through a different ip address or port
+so the server doesnt read its own broadcasts
+and the players dont read their own messages
+
+but the questions is what should they send and how often
+we need a way to determine if a player is still connected
+
+so first of all, the server is probably going to keep track of when every player last sent an update
+going to need to*
+
+and then if a player doesnt send a message for like 10 seconds, theyre disconnected or something like that
+
+ok so that requires a time keeper
+
+right
+just the last time a message was received should be sufficient
+
+what a player should do is have a separate thread that sends KEEP_ALIVE messages every 1 or 2 seconds
+
+is that necessary or is the time all you need?
+
+is what necessary?
+
+the KEEP_ALIVE message
+seems redundant
+
+well, in case the player doesnt move for like 10 seconds
+they wont send any messages because they didnt do anything
+but they shouldnt be disconnected
+yet, the server will disconnect any player that it doesnt receive a message from in 10 seconds (or another period of time if we so choose)
+
+k that makes sense
+in case they close the program, then it will stop sending those messages
+
+10 seconds does seem like a long time though
+
+yea maybe 5?
+
+maybe 5 seconds removes you from the map
+but you can be placed back into the map if you reconnect before 15
+
+hm intersting
+
+idk how we would implement that but its an idea
+
+yea we can worry about that detail later
+
+we'll keep it at 5 for now
+right
+alright so here's another decision
+
+should a player move immediately when the user gives it input or should it just pass on that input to the server and wait for the grid to be updated?
+
+i do know that if we update the server and then wait for the grid to be changed first, it will make sure everybody has the same exact info and screen at the same time
+but it might introduce a delay between when u press the button and when your player moved
+moves*
+
+right a bit of lag
+
+right, the question is how much
+
+we can try both i guess
+
+it could be a few milliseconds or it could be much more
+i think we should stick with letting the server deal with it for the prototype
+
+ok
+
+and then make changes based on performance afterwards
+
+ok but then should the inputhandler still check with the map to make sure the player can move to the location
+
+hm so inputhandler has to talk with the server?
+
+i think
+is that how we should do it?
+right now the inputhandler checks every few milliseconds if the input keys are down
+then it gets the players current location
+and checks if the player can move to the new location
+
+yea it should update the playerscreen based on whether the server allows it or not
+
+and if it can, it changes the players location
+oh i meant it asks the map if it can move to the location. the map tells it if theres something solid/semi-solid in the area it wants to move to
+
+but yea, should the server do that instead
+that would increase the amount of work the server needs to do
+
+ok here are two new decisions: can players pass through other players? and can players shoot through their team mates?
+
+that can be a server option, if friendly fire is allowed or not
+
+ok
+but if friendly fire is disabled, will your bullet stop when it hits a team mate o continue through them
+
+it should just stop
+and not do anything
+
+ok
+so i assume that also means u cant pass through another player
+
+yea
+
+ok, so when the inputhandler gets input, it first checks if the point is valid with the map, and then passes it on to the server
+the server can either use the new point in the grid or discard it if ur going to end up hitting a player

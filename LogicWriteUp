@@ -1,0 +1,17 @@
+*two letters in parentheses refer to package
+
+1.	Starts with InitWindow.java (gr).  User enters username and user can 
+    choose to either create a new game (go to 2) or connect to an existing game
+    (go to 3).
+2.	Open ServerOptionsWindow.java (gr).  User can specify server and game
+    options.  User can either continue (go to 4) or go back (go to 1).
+3.	Open GameSelectWindow.java (gr).  User can either choose an available 
+    server from a table(go to 5), manually enter server information (go to 5), or go
+    back(go to 1).
+4.	 Open GameRunner.java (ga).  GameRunner.java sets up a server and
+    handles gameplay.  User can either choose to act as player(go to 5) or act
+    as observer(go to 7).
+5.	Open ImageSelectWindow.java (gr).  User chooses player sprite / gun?
+6.	Open PlayerRunner.java (ga).  PlayerRunner.java connects to server, sets
+    up PlayerScreen.java (gr), and waits for game to start.
+7.	To be implemented if we have time.
